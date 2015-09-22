@@ -4,13 +4,28 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2015-09-21T22:40:41-05:00</updated>
+ <updated>2015-09-21T23:23:10-05:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
    <email>a10i@icloud.com</email>
  </author>
 
+ 
+ <entry>
+   <title>AWS S3 Access From Specific IPs</title>
+   <link href="/aws-s3-ip-access"/>
+   <updated>2015-09-21T00:00:00-05:00</updated>
+   <id>/aws-s3-ip-access</id>
+   <content type="html">&lt;blockquote&gt;
+&lt;p&gt;By default accounts are restricted from accessing S3 unless they have been given access via policy.
+However, S3 is designed by default to allow any IP address access.
+So to block IP&amp;#39;s you would have to specify denies explicitly in the policy instead of allows.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A great blog post that help me with setting up restricted access to AWS S3 directory&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Yo Jekyll - my blogging platform</title>
