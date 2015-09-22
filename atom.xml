@@ -4,7 +4,7 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2015-09-21T00:06:21-05:00</updated>
+ <updated>2015-09-21T22:40:41-05:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
@@ -13,10 +13,95 @@
 
  
  <entry>
+   <title>Yo Jekyll - my blogging platform</title>
+   <link href="/yo-jekyll"/>
+   <updated>2015-09-20T00:00:00-05:00</updated>
+   <id>/yo-jekyll</id>
+   <content type="html">&lt;p&gt;I have been hearing and seeing developer &amp;amp; enthusiasts use Jekyll&lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, but never had a chance to check it out - until now!
+ And I must say that I love the concept, simplicity and git. It sure does take some time to understand Jekyll, but in the end its all worth the effort!&lt;/p&gt;
+
+&lt;h3&gt;A Basic Jekyll Site&lt;/h3&gt;
+
+&lt;p&gt;On researching and looking at various blogs patronizing Jekyll &amp;amp; the cool-new way of blogging, I wanted to give it a shot.
+ I initially started off with testing a basic Jekyll blog using&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt; ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install jekyll
+ ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new my-awesome-site
+ ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;my-awesome-site
+ ~/my-awesome-site &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This popped up a basic site on &lt;code&gt;http://localhost:4000&lt;/code&gt;. And I already feel so good! The same feeling when I endorsed LaTeX&lt;sup id=&quot;fnref2&quot;&gt;&lt;a href=&quot;#fn2&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;I generally started reading more on Jekyll and how concepts like &lt;code&gt;_posts&lt;/code&gt;, &lt;code&gt;pages&lt;/code&gt;, &lt;code&gt;templates&lt;/code&gt;, etc. works.
+ Then I stumbled upon a post by David Calhoun&lt;sup id=&quot;fnref3&quot;&gt;&lt;a href=&quot;#fn3&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;,
+ on using Yeoman&lt;sup id=&quot;fnref4&quot;&gt;&lt;a href=&quot;#fn4&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt; a.k.a &lt;code&gt;Yo&lt;/code&gt;, a web scaffolding tool that helps you kickstart a project with Jekyll. Things just got interesting!&lt;/p&gt;
+
+&lt;p&gt;Its not very tough to kickstart a Jekyll blog using Yeoman:&lt;/p&gt;
+
+&lt;h3&gt;Install Jekyll with Yeoman&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt; ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install -g yo
+ ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install -g generator-jekyllrb
+ ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir ~/Sites/myblog &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;
+ ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yo jekyllrb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;These were some of my responses to the generator:&lt;/p&gt;
+
+&lt;h4&gt;Wire tools and preprocessors.&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;? CSS preprocessor: Compass
+? Use Autoprefixer? Yes
+? Javascript preprocessor: None
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Choose a template.&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;? Site template: Default Jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Choose deployment options.&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;? Use grunt-build-control for deployment? No
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This builds (creates a static version of the source code that you have) and creates a server to view the website at &lt;code&gt;http://localhost:3000&lt;/code&gt;.
+ The best part here is that Yo comes with &lt;a href=&quot;http://www.browsersync.io&quot;&gt;Browsersync&lt;/a&gt; - and that is awesome!
+ I spent some more time playing around with the platform and started to get a hang of it.&lt;/p&gt;
+
+&lt;h3&gt;Theming&lt;/h3&gt;
+
+&lt;p&gt;I embrace simple design (as much as I can) and started looking for themes to help me get started.
+&lt;a href=&quot;http://lanyon.getpoole.com&quot;&gt;Lanyon&lt;/a&gt;, a theme based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt; was an obvious winner! :)&lt;/p&gt;
+
+&lt;h3&gt;Publishing&lt;/h3&gt;
+
+&lt;p&gt;All is well, but what about hosting your blog? &lt;/p&gt;
+
+&lt;p&gt;The contents / files in the &lt;code&gt;dist&lt;/code&gt; directory are static HTML pages and can be hosted via &lt;a href=&quot;https://pages.github.com&quot;&gt;GitHub Pages&lt;/a&gt; - best part is it&amp;#39;s free :) 
+ Simply follow the steps &amp;amp; you have your website up &amp;amp; running! &lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id=&quot;fn1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://hugogiraudel.com/2013/02/21/jekyll/&quot;&gt;Hugo Giraudel&lt;/a&gt;; &lt;a href=&quot;https://blog.engineyard.com/2015/fast-blogging-solution-building-simple-jekyll-blog&quot;&gt;Engine Yard&lt;/a&gt;; &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li id=&quot;fn2&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.latex-project.org&quot;&gt;https://www.latex-project.org&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref2&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li id=&quot;fn3&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://davidcalhoun.me/2013/10/30/migration-to-jekyll-my-journey-to-understanding-yeoman/&quot;&gt;http://davidcalhoun.me/2013/10/30/migration-to-jekyll-my-journey-to-understanding-yeoman/&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref3&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li id=&quot;fn4&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://yeoman.io&quot;&gt;http://yeoman.io&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref4&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Introducing Myself</title>
-   <link href="/2015/09/19/introducing-myself"/>
+   <link href="/introducing-myself"/>
    <updated>2015-09-19T00:00:00-05:00</updated>
-   <id>/2015/09/19/introducing-myself</id>
+   <id>/introducing-myself</id>
    <content type="html">&lt;p&gt;I was an avid blogger. But something happened and I stopped - not sure why! I plan to revive my passion for blogging through this platform.&lt;/p&gt;
 
 &lt;h3&gt;A little about me&lt;/h3&gt;
