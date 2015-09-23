@@ -4,13 +4,45 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2015-09-21T23:23:10-05:00</updated>
+ <updated>2015-09-22T22:18:45-05:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
    <email>a10i@icloud.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Using same github repository for Yeoman Jekyll's source and dist</title>
+   <link href="/source-master-github-pages-repo"/>
+   <updated>2015-09-22T00:00:00-05:00</updated>
+   <id>/source-master-github-pages-repo</id>
+   <content type="html">&lt;p&gt;In My post on installing and configuring &lt;a href=&quot;/yo-jekyll/&quot;&gt;Jekyll with Yeoman&lt;/a&gt;, I mentioned about using &lt;code&gt;dist&lt;/code&gt; directory to publish for GitHub pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Here&amp;#39;s the thing&lt;/strong&gt;: I want to be able to track my source code too (to save drafts, posts etc, without publishing)!
+ I could use a completely separate git repository (for example myblog_source),
+but I wanted to have them all in the same repository. So, here is How I got that done (replace username with your GitHub username).&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /path/to/your/blog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add .
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&amp;quot;first source code commit.&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git remote add origin https://github.com/username/username.github.io.git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push -u origin master:source
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch -d master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;git push -u origin master:source&lt;/code&gt; renames the branch to &amp;#39;source&amp;#39; before pushing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: If you already have setup &lt;code&gt;dist&lt;/code&gt; to the master branch, skip the steps below&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;dist
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git init
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add .
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&amp;quot;first gh-pages commit&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git remote add origin https://github.com/username/username.github.io.git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This way you have two completely separate branches &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;master&lt;/code&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>AWS S3 Access From Specific IPs</title>
