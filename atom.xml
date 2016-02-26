@@ -4,13 +4,88 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2016-02-11T11:14:11-06:00</updated>
+ <updated>2016-02-25T16:19:04-06:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
    <email>a10i@icloud.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Modifying config / file in vendor project (via composer)</title>
+   <link href="/modifying-config-file-in-composer-vendor"/>
+   <updated>2016-02-25T00:00:00-06:00</updated>
+   <id>/modifying-config-file-in-composer-vendor</id>
+   <content type="html">&lt;p&gt;Let me start by saying that I understand - its not a good idea / practice to change vendor files.
+But there are situations, where this cannot be avoided!&lt;/p&gt;
+
+&lt;p&gt;Recently when using &lt;a href=&quot;http://www.mpdf1.com/mpdf/index.php&quot;&gt;mPDF&lt;/a&gt; package with &lt;a href=&quot;http://cakephp.org&quot;&gt;CakePHP&lt;/a&gt;
+via &lt;a href=&quot;http://getcomposer.org&quot;&gt;composer&lt;/a&gt; at &lt;a href=&quot;https://github.com/mpdf/mpdf&quot;&gt;https://github.com/mpdf/mpdf&lt;/a&gt;,
+I needed to touch one of the config files in the package
+- specifically the &lt;code class=&quot;highlighter-rouge&quot;&gt;config_fonts.php&lt;/code&gt; as there was a need to change or add default fonts&lt;sup id=&quot;fnref:mpdf-change-font&quot;&gt;&lt;a href=&quot;#fn:mpdf-change-font&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; when generating pdf.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-solution&quot;&gt;One solution&lt;/h2&gt;
+&lt;p&gt;One solution is to manually download the package and add it to your “Library” folder. This will unfortunately increase the size of your codebase!&lt;/p&gt;
+
+&lt;h2 id=&quot;my-solution&quot;&gt;My Solution&lt;/h2&gt;
+&lt;p&gt;We can leverage the &lt;code class=&quot;highlighter-rouge&quot;&gt;post-autoload-dump&lt;/code&gt; event in composer&lt;sup id=&quot;fnref:post-autoload-dump&quot;&gt;&lt;a href=&quot;#fn:post-autoload-dump&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; to generate / overwrite the config file (after first backing up the original file)!
+The only thing to be maintained in our repository was the config file to be overwritten.&lt;/p&gt;
+
+&lt;p&gt;I created a &lt;code class=&quot;highlighter-rouge&quot;&gt;postAutoloadDump()&lt;/code&gt; static function inside my &lt;code class=&quot;highlighter-rouge&quot;&gt;Install&lt;/code&gt; class and added that to the &lt;code class=&quot;highlighter-rouge&quot;&gt;post-autoload-dump&lt;/code&gt; event in &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt;.
+Here is a very basic CakePHP code (similar method can be used for any generic php project):&lt;/p&gt;
+
+&lt;h4 id=&quot;file-srcconsoleinstallerphp&quot;&gt;file: &lt;code class=&quot;highlighter-rouge&quot;&gt;src/Console/Installer.php&lt;/code&gt;&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#### truncated_code ####
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Installer&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;postAutoloadDump&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Event&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getComposer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$vendorDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;realpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;vendor-dir&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+        &lt;span class=&quot;nv&quot;&gt;$originalFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$vendorDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;/mpdf/mpdf/config_fonts.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$backupFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$vendorDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;&#39;/mpdf/mpdf/config_fonts-orig.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$customFontFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__DIR__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;&#39;/../config/for_mpdf/config_fonts.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//Create a backup
+&lt;/span&gt;        &lt;span class=&quot;nb&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$originalFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$backupFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//Overwrite the config file
+&lt;/span&gt;        &lt;span class=&quot;nb&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$customFontFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$originalFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#### truncated_code ####
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;file-composerjson&quot;&gt;file: &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt;&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**** truncated_code ****/&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;post-install-cmd&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;App\\Console\\Installer::postInstall&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;post-autoload-dump&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;App\\Console\\Installer::postAutoloadDump&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**** truncated_code ****/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:mpdf-change-font&quot;&gt;
+      &lt;p&gt;Changing fonts in mPDF &lt;a href=&quot;https://github.com/mpdf/mpdf#fonts&quot;&gt;https://github.com/mpdf/mpdf#fonts&lt;/a&gt;. &lt;a href=&quot;#fnref:mpdf-change-font&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:post-autoload-dump&quot;&gt;
+      &lt;p&gt;Composer documentation on &lt;a href=&quot;https://getcomposer.org/doc/articles/scripts.md&quot;&gt;scripts&lt;/a&gt;. &lt;a href=&quot;#fnref:post-autoload-dump&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>ui-select broken with AngularJS 1.5.0</title>
