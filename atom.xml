@@ -4,7 +4,7 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2016-07-04T03:08:10-05:00</updated>
+ <updated>2016-07-04T03:10:30-05:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
@@ -17,12 +17,14 @@
    <link href="/mysql-amazon-s3-backup"/>
    <updated>2016-07-04T00:00:00-05:00</updated>
    <id>/mysql-amazon-s3-backup</id>
-   <content type="html">&lt;p&gt;Recently, I was wondering about a good way to backup my MySQL databases to some place that is safe, reliable and easily accessible and not in the same server where my code is hosted. By now I have had some experience with Amazon Web Services (AWS). They are so easy to work with!&lt;/p&gt;
+   <content type="html">&lt;h1 id=&quot;repository&quot;&gt;Repository&lt;/h1&gt;
+&lt;p&gt;The setup and usage is quite simple. Just follow the &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; at &lt;a href=&quot;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
+&lt;p&gt;Recently, I was wondering about a good way to backup my MySQL databases to some place that is safe, reliable and easily accessible and not in the same server where my code is hosted. By now I have had some experience with Amazon Web Services (AWS). They are so easy to work with!&lt;/p&gt;
 
 &lt;p&gt;Initially I was using my dedicated hosting provider’s default backup service. Problem? I have no idea where my backup is and in case of emergency, there would be some latency. So, I wrote a quick script that uses &lt;a href=&quot;https://aws.amazon.com/cli/&quot;&gt;AWS Command Line Interface (CLI)&lt;/a&gt; to backup!&lt;/p&gt;
 
-&lt;h1 id=&quot;repository&quot;&gt;Repository&lt;/h1&gt;
-&lt;p&gt;The setup and usage is quite simple. Just follow the &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; at &lt;a href=&quot;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
