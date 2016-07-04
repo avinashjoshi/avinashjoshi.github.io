@@ -4,13 +4,27 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2016-02-25T16:19:04-06:00</updated>
+ <updated>2016-07-04T03:08:10-05:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
    <email>a10i@icloud.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Backup MySQL database to Amazon S3</title>
+   <link href="/mysql-amazon-s3-backup"/>
+   <updated>2016-07-04T00:00:00-05:00</updated>
+   <id>/mysql-amazon-s3-backup</id>
+   <content type="html">&lt;p&gt;Recently, I was wondering about a good way to backup my MySQL databases to some place that is safe, reliable and easily accessible and not in the same server where my code is hosted. By now I have had some experience with Amazon Web Services (AWS). They are so easy to work with!&lt;/p&gt;
+
+&lt;p&gt;Initially I was using my dedicated hosting provider’s default backup service. Problem? I have no idea where my backup is and in case of emergency, there would be some latency. So, I wrote a quick script that uses &lt;a href=&quot;https://aws.amazon.com/cli/&quot;&gt;AWS Command Line Interface (CLI)&lt;/a&gt; to backup!&lt;/p&gt;
+
+&lt;h1 id=&quot;repository&quot;&gt;Repository&lt;/h1&gt;
+&lt;p&gt;The setup and usage is quite simple. Just follow the &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; at &lt;a href=&quot;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Modifying config / file in vendor project (via composer)</title>
@@ -188,16 +202,18 @@ So to block IP’s you would have to specify denies explicitly in the policy ins
  Then I stumbled upon a post by David Calhoun&lt;sup id=&quot;fnref:DC&quot;&gt;&lt;a href=&quot;#fn:DC&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;,
  on using Yeoman&lt;sup id=&quot;fnref:YO&quot;&gt;&lt;a href=&quot;#fn:YO&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt; a.k.a &lt;code class=&quot;highlighter-rouge&quot;&gt;Yo&lt;/code&gt;, a web scaffolding tool that helps you kickstart a project with Jekyll. Things just got interesting!&lt;/p&gt;
 
-&lt;p&gt;Its not very tough to kickstart a Jekyll blog using Yeoman:
-### Install Jekyll with Yeoman&lt;/p&gt;
+&lt;p&gt;Its not very tough to kickstart a Jekyll blog using Yeoman:&lt;/p&gt;
+
+&lt;h3 id=&quot;install-jekyll-with-yeoman&quot;&gt;Install Jekyll with Yeoman&lt;/h3&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;~$ &lt;/span&gt;npm install -g yo
 &lt;span class=&quot;gp&quot;&gt;~$ &lt;/span&gt;npm install -g generator-jekyllrb
 &lt;span class=&quot;gp&quot;&gt;~$ &lt;/span&gt;mkdir ~/Sites/myblog &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;
 &lt;span class=&quot;gp&quot;&gt;myblog~$ &lt;/span&gt;yo jekyllrb&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;These were some of my responses to the generator:
-#### Wire tools and preprocessors.&lt;/p&gt;
+&lt;p&gt;These were some of my responses to the generator:&lt;/p&gt;
+
+&lt;h4 id=&quot;wire-tools-and-preprocessors&quot;&gt;Wire tools and preprocessors.&lt;/h4&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;? CSS preprocessor: Compass
 ? Use Autoprefixer? Yes
@@ -211,9 +227,20 @@ So to block IP’s you would have to specify denies explicitly in the policy ins
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;? Use grunt-build-control &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;deployment? No&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
+&lt;h4 id=&quot;building--generating-your-site&quot;&gt;Building &amp;amp; Generating your site&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;~$ &lt;/span&gt;grunt serve&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 &lt;p&gt;This builds (creates a static version of the source code that you have) and creates a server to view the website at &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:3000&lt;/code&gt;.
  The best part here is that Yo comes with &lt;a href=&quot;http://www.browsersync.io&quot;&gt;Browsersync&lt;/a&gt; - and that is awesome!
  I spent some more time playing around with the platform and started to get a hang of it.&lt;/p&gt;
+
+&lt;h4 id=&quot;deploying-your-site&quot;&gt;Deploying your site&lt;/h4&gt;
+&lt;p&gt;If you would like to see the html generated page of your site use the following:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;~$ &lt;/span&gt;grunt build&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This generates the HTML code of your site at &lt;code class=&quot;highlighter-rouge&quot;&gt;dist&lt;/code&gt; folder&lt;/p&gt;
 
 &lt;h3 id=&quot;theming&quot;&gt;Theming&lt;/h3&gt;
 &lt;p&gt;I embrace simple design (as much as I can) and started looking for themes to help me get started.
@@ -222,7 +249,7 @@ So to block IP’s you would have to specify denies explicitly in the policy ins
 &lt;h3 id=&quot;publishing&quot;&gt;Publishing&lt;/h3&gt;
 &lt;p&gt;All is well, but what about hosting your blog?&lt;/p&gt;
 
-&lt;p&gt;The contents / files in the &lt;code class=&quot;highlighter-rouge&quot;&gt;dist&lt;/code&gt; directory are static HTML pages and can be hosted via &lt;a href=&quot;https://pages.github.com&quot;&gt;GitHub Pages&lt;/a&gt; - best part is it’s free :) 
+&lt;p&gt;The contents / files in the &lt;code class=&quot;highlighter-rouge&quot;&gt;dist&lt;/code&gt; directory are static HTML pages and can be hosted via &lt;a href=&quot;https://pages.github.com&quot;&gt;GitHub Pages&lt;/a&gt; - best part is it’s free :)
  Simply follow the steps &amp;amp; you have your website up &amp;amp; running!&lt;/p&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
