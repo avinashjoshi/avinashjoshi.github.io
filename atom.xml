@@ -4,7 +4,7 @@
  <title>Avinash Joshi</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2016-07-04T03:10:30-05:00</updated>
+ <updated>2016-07-10T09:16:21+02:00</updated>
  <id></id>
  <author>
    <name>Avinash Joshi</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>Backup MySQL database to Amazon S3</title>
    <link href="/mysql-amazon-s3-backup"/>
-   <updated>2016-07-04T00:00:00-05:00</updated>
+   <updated>2016-07-04T00:00:00+02:00</updated>
    <id>/mysql-amazon-s3-backup</id>
    <content type="html">&lt;h1 id=&quot;repository&quot;&gt;Repository&lt;/h1&gt;
 &lt;p&gt;The setup and usage is quite simple. Just follow the &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; at &lt;a href=&quot;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://github.com/avinashjoshi/MySQL-AmazonS3-Backup&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
@@ -31,7 +31,7 @@
  <entry>
    <title>Modifying config / file in vendor project (via composer)</title>
    <link href="/modifying-config-file-in-composer-vendor"/>
-   <updated>2016-02-25T00:00:00-06:00</updated>
+   <updated>2016-02-25T00:00:00+01:00</updated>
    <id>/modifying-config-file-in-composer-vendor</id>
    <content type="html">&lt;p&gt;Let me start by saying that I understand - its not a good idea / practice to change vendor files.
 But there are situations, where this cannot be avoided!&lt;/p&gt;
@@ -106,7 +106,7 @@ Here is a very basic CakePHP code (similar method can be used for any generic ph
  <entry>
    <title>ui-select broken with AngularJS 1.5.0</title>
    <link href="/ui-select-broken-angular-1.5"/>
-   <updated>2016-02-11T00:00:00-06:00</updated>
+   <updated>2016-02-11T00:00:00+01:00</updated>
    <id>/ui-select-broken-angular-1.5</id>
    <content type="html">&lt;p&gt;I recently upgraded my AngularJS app to v1.5.0 and it broke my &lt;a href=&quot;https://github.com/angular-ui/ui-select&quot;&gt;ui-select&lt;/a&gt; with the following error:&lt;/p&gt;
 
@@ -135,7 +135,7 @@ Here is a very basic CakePHP code (similar method can be used for any generic ph
  <entry>
    <title>Using same github repository for Yeoman Jekyll's source and dist</title>
    <link href="/source-master-github-pages-repo"/>
-   <updated>2015-09-22T00:00:00-05:00</updated>
+   <updated>2015-09-22T00:00:00+02:00</updated>
    <id>/source-master-github-pages-repo</id>
    <content type="html">&lt;p&gt;In My post on installing and configuring &lt;a href=&quot;/yo-jekyll/&quot;&gt;Jekyll with Yeoman&lt;/a&gt;, I mentioned about using &lt;code class=&quot;highlighter-rouge&quot;&gt;dist&lt;/code&gt; directory to publish for GitHub pages.&lt;/p&gt;
 
@@ -169,7 +169,7 @@ but I wanted to have them all in the same repository. So, here is How I got that
  <entry>
    <title>AWS S3 Access From Specific IPs</title>
    <link href="/aws-s3-ip-access"/>
-   <updated>2015-09-21T00:00:00-05:00</updated>
+   <updated>2015-09-21T00:00:00+02:00</updated>
    <id>/aws-s3-ip-access</id>
    <content type="html">&lt;blockquote&gt;
   &lt;p&gt;By default accounts are restricted from accessing S3 unless they have been given access via policy.
@@ -184,7 +184,7 @@ So to block IP’s you would have to specify denies explicitly in the policy ins
  <entry>
    <title>Yo Jekyll - my blogging platform</title>
    <link href="/yo-jekyll"/>
-   <updated>2015-09-20T00:00:00-05:00</updated>
+   <updated>2015-09-20T00:00:00+02:00</updated>
    <id>/yo-jekyll</id>
    <content type="html">&lt;p&gt;I have been hearing and seeing developer &amp;amp; enthusiasts use Jekyll&lt;sup id=&quot;fnref:JKSITE&quot;&gt;&lt;a href=&quot;#fn:JKSITE&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, but never had a chance to check it out - until now!
  And I must say that I love the concept, simplicity and git. It sure does take some time to understand Jekyll, but in the end its all worth the effort!&lt;/p&gt;
@@ -276,7 +276,7 @@ So to block IP’s you would have to specify denies explicitly in the policy ins
  <entry>
    <title>Introducing Myself</title>
    <link href="/introducing-myself"/>
-   <updated>2015-09-19T00:00:00-05:00</updated>
+   <updated>2015-09-19T00:00:00+02:00</updated>
    <id>/introducing-myself</id>
    <content type="html">&lt;p&gt;I was an avid blogger. But something happened and I stopped - not sure why! I plan to revive my passion for blogging through this platform.&lt;/p&gt;
 
