@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <small class="post-date">
+    {{ page.date | date: "%b %-d, %Y" }}
+    <br>
+    {% if page.referrer %}Referrer: <a href="{{page.referrer}}" target="_blank">{{page.referrer}}</a> {%endif%}
+  </small>
+
+  <br>
+  {{ content }}
+</div>
+
+{% include post_prev_next.html %}
+
+{% include post_related.html %}
