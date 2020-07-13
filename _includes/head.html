@@ -6,24 +6,18 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+  <title>{{ site.title }}: {% if page.title %}{{ page.title }}{% else %}{{ site.subtitle }}{% endif %}</title>
   <meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
   <meta name="author" content="{{ site.author.name }}">
   <meta name="keywords" content="{% if page.categories %}{{ page.categories | join: ', ' }}, {% endif %}{{ page.tags | join: ', ' }}">
 
-  <link rel="stylesheet" href="/assets/fontawesome/css/fontawesome.min.css">
-  <link rel="stylesheet" href="/assets/css/poole.css">
-  <link rel="stylesheet" href="/assets/css/syntax.css">
-  <link rel="stylesheet" href="/assets/css/lanyon.css">
-  <link rel="stylesheet" href="/assets/css/hamburger.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <link rel="stylesheet" href="/public/css/main.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="/assets/favicon/apple-icon.png">
+  <link rel="shortcut icon" href="/public/favicon/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon/apple-icon.png">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">

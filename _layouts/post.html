@@ -7,18 +7,16 @@ layout: default
 {% assign minutes = 1 %}
 {% endif %}
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <small class="post-date">
-    {{ page.date | date: "%b %-d, %Y" }}
-    <br>
-    <span>{{ minutes }} minute read</span>
-  </small>
-
-
+<h0 class="title post-title">{{ page.title }}</h0>
+<div class="meta post-meta">
+  {{ page.date | date: "%b %-d, %Y" }} &middot; {{ minutes }} minute read
+</div>
+<div class="content post-content">
   {{ content }}
 </div>
 
 {% include post_prev_next.html %}
 
 {% include post_related.html %}
+
+{% include comment.html %}

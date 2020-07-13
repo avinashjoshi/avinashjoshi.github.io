@@ -2,11 +2,11 @@
   {% if page.previous %}
   <a class="pagination-item older" title="{{page.previous.title}}" href="{{page.previous.url}}">Previous</a>
   {% else %}
-  <span class="pagination-item older">Next</span>
+  <span class="pagination-item older disabled">Next</span>
   {% endif %}
   {% if page.next %}
   <a class="pagination-item newer" title="{{page.next.title}}" href="{{ page.next.url }}">Next</a>
   {% else %}
-  <span class="pagination-item older">Next</span>
+  <span class="pagination-item newer disabled">Next</span>
   {% endif %}
 </div>

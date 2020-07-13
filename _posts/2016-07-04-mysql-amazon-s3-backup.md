@@ -5,7 +5,7 @@ tags: mysql backup amazon s3 aws
 ---
 
 # Repository
-The setup and usage is quite simple. Just follow the `README.md` at [`http://github.com/avinashjoshi/MySQL-AmazonS3-Backup`](http://github.com/avinashjoshi/MySQL-AmazonS3-Backup)
+The setup and usage is quite simple. Just follow the `README.md` at [http://github.com/avinashjoshi/MySQL-AmazonS3-Backup](http://github.com/avinashjoshi/MySQL-AmazonS3-Backup)
 
 # Background
 Recently, I was wondering about a good way to backup my MySQL databases to some place that is safe, reliable and easily accessible and not in the same server where my code is hosted. By now I have had some experience with Amazon Web Services (AWS). They are so easy to work with!

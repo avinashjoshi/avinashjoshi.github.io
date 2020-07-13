@@ -5,28 +5,39 @@
 
   <body>
 
-    {% include sidebar.html %}
+    <div class="container">
+      <header>
+          <h2 class="site-title">
+            <a href="{{ site.baseurl }}/" title="Home">
+              {% comment %}<img src="{{ site.baseurl }}/public/img/logo.png" />{% endcomment %}
+              Avinash Joshi
+            </a>
+          </h2>
+          <ul class="nav">
+            {% comment %}Dynamically generates a sidebar nav of pages with `layout: page` in the front-matter.{% endcomment %}
+            {% assign pages_list = site.pages | sort:"url" %}
+            {% for node in pages_list %}
+              {% if node.title != null %}
+                {% if node.layout == "page" %}
+                  <li class="{% if page.url == node.url %}active{% endif %}">
+                    <a href="{{ node.url }}">{{ node.title }}</a>
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+      </header>
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home"><img src="{{ site.baseurl }}/assets/img/logo.png"></a>
-          </h3>
-        </div>
+      <div class="content-wrapper">
+          {{ content }}
       </div>
 
-      <div class="container content">
-        {{ content }}
-      </div>
+      <footer>
+          <div>Made with &#9829; using <a href="https://jekyllrb.com" target="_blank">Jekyll</a> and hosted on <a href="https://pages.github.com" target="_blank">Github Pages</a></div>
+          <button title="Switch between 🖥 system theme | 🌙 dark mode | ☀️ light mode" class="color-scheme" id="color-scheme-toggle"></button>
+      </footer>
     </div>
 
-    <button class="c-hamburger c-hamburger--htx">
-      <span>toggle menu</span>
-    </button>
-
-    <script src="/assets/js/main.js"></script>
+    <script src="/public/js/color-scheme-toggle.js"></script>
   </body>
 </html>
