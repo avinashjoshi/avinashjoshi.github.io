@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta
+      name="description"
+      content="A passionate programmer and tech enthusiast with an unwavering
+        belief in the power of code! With the mantra “It’s possible”,
+        I embrace challenges head-on, constantly pushing boundaries.
+        I quickly pick up new tech skills, not just for my job, but from
+        genuine curiosity and the desire to always learn the latest in tech."
+    />
+    <meta
+      property="og:description"
+      content="A passionate programmer and tech enthusiast with an unwavering
+        belief in the power of code! With the mantra “It’s possible”,
+        I embrace challenges head-on, constantly pushing boundaries.
+        I quickly pick up new tech skills, not just for my job, but from
+        genuine curiosity and the desire to always learn the latest in tech."
+    />
+    <title>
+      Avinash Joshi - Tech Enthusiast, Code Believer, Passionate Programmer.
+    </title>
+
+    <style>
+      :root {
+        font-size: 100%; /* Equivalent to 16px */
+        --background-color: #f4f4f4;
+        --foreground-color: #fff;
+        --text-color: #333;
+        --text-secondary-color: #555;
+        --border-color: rgba(0, 0, 0, 0.2);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body.dark-mode {
+          --background-color: #1e2024;
+          --foreground-color: #2c2e34;
+          --text-color: #d1d1d6;
+          --text-secondary-color: #aaa;
+          --border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("fonts/JetBrainsMono-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      body {
+        font-size: 1rem;
+        font-family: "JetBrains Mono", monospace;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        margin: 0;
+        padding: 0.625rem;
+      }
+
+      header,
+      section,
+      footer {
+        max-width: 50rem; /* 800px */
+        margin: 1.25rem auto;
+        padding: 1.25rem;
+        background-color: var(--foreground-color);
+        box-shadow: 0 0 0.625rem var(--border-color);
+        border-radius: 0.625rem;
+      }
+
+      header,
+      section h2,
+      footer {
+        text-align: center;
+      }
+
+      header {
+        margin-top: 3rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+      }
+
+      .header-content h1 {
+        margin-block-end: 0.27em;
+      }
+
+      .header-content h1,
+      .header-content p {
+        margin-block-start: 0.27em;
+      }
+
+      .avatar {
+        width: 6.25rem;
+        height: 6.25rem;
+        margin-top: -3.75rem;
+        border-radius: 50%;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        gap: 1.25rem;
+      }
+
+      .photo-item img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        border-radius: 0.3125rem;
+      }
+
+      .photo-item img:hover {
+        transform: scale(1.05);
+      }
+
+      .photo-item p {
+        text-align: center;
+        margin-top: 0.3125rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        color: var(--text-secondary-color);
+      }
+
+      footer a {
+        color: var(--text-secondary-color);
+        text-decoration: none;
+        margin: 0 0.3125rem;
+      }
+
+      button#themeToggle {
+        margin-top: 0.625rem;
+        padding: 0.5rem 0.9rem;
+        border: none;
+        border-radius: 0.3125rem;
+        background-color: var(--text-secondary-color);
+        color: var(--background-color);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button#themeToggle:hover {
+        background-color: var(--text-color);
+      }
+
+      .copyright {
+        padding: 0.3125rem 0;
+        max-width: 50rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .copyright p {
+        font-size: 0.7rem;
+        margin-top: 0.625rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-avatar">
+        <img src="avatar.jpg" alt="Avinash Joshi" class="avatar" />
+      </div>
+      <div class="header-content">
+        <h1>Avinash Joshi</h1>
+        <p>Tech Enthusiast, Code Believer, Passionate Programmer.</p>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm Avinash, a seasoned programmer and tech enthusiast with an
+        unwavering belief in the power of code. I embrace challenges head-on and
+        constantly push boundaries. I pick up new tech skills fast, not just
+        because it's my job, but because I'm genuinely curious and always want
+        to learn the latest in tech.
+      </p>
+      <h3>A Coding Affair</h3>
+      <p>
+        My fascination with computers has been a lifelong affair. The idea of
+        using code to create, innovate, and solve problems seemed almost
+        magical. Over the years, I've honed my skills across various coding
+        languages and platforms, always staying adaptable and keen to embrace
+        the latest in technology. Challenges don't deter me; in fact, they fuel
+        my determination. My guiding principle in work and life is simple: “It’s
+        possible.” It reminds me that with perseverance and the right approach,
+        obstacles can be overcome.
+      </p>
+      <h3>Personal Touch</h3>
+      <p>
+        Beyond the screen and lines of code, I am deeply connected to my
+        spiritual roots. It guides my decisions, ensuring I always strive to do
+        what's right, not just what's easy. I have a natural inclination to
+        assist and uplift those around me. While I might come across as
+        introspective at first, those who get to know me realize I enjoy
+        engaging conversations and shared laughter. In my personal time, I
+        cherish moments with my wife and two sons, exploring new places through
+        our road trips, and keeping a pulse on the latest tech gadgets to
+        explore and tinker with.
+      </p>
+    </section>
+
+    <section id="photos">
+      <h2>Photos</h2>
+      <div class="photo-grid">
+        <div class="photo-item">
+          <img
+            src="photos/keyboard-glasses.jpg"
+            loading="lazy"
+            alt="One of my desk setups. Macbook is now my goto machine."
+          />
+          <p>One of my desk setups. Macbook is now my goto machine.</p>
+        </div>
+        <div class="photo-item">
+          <img
+            src="photos/tesla-roof.jpg"
+            loading="lazy"
+            alt="Rain drops on Tesla Model 3 roof."
+          />
+          <p>Rain drops on Tesla Model 3 roof.</p>
+        </div>
+        <div class="photo-item">
+          <img
+            src="photos/nightsky-ruidoso.jpg"
+            loading="lazy"
+            alt="Night Sky over Ruidoso, New Mexico. Shot on Apple iPhone 13 mini."
+          />
+          <p>
+            Night Sky over Ruidoso, New Mexico. Shot on Apple iPhone 13 mini.
+          </p>
+        </div>
+        <div class="photo-item">
+          <img
+            src="photos/desktop-computer.jpg"
+            loading="lazy"
+            alt="My desktop from my past - runs my most cherished Windows XP."
+          />
+          <p>My desktop from my past - runs my most cherished Windows XP.</p>
+        </div>
+        <div class="photo-item">
+          <img
+            src="photos/canoeing-austin.jpg"
+            loading="lazy"
+            alt="Cherishing the little moments in life. Canoeing with my wife at Lady
+            Bird Lake, Austin."
+          />
+          <p>
+            Cherishing the little moments in life. Canoeing with my wife at Lady
+            Bird Lake, Austin.
+          </p>
+        </div>
+        <div class="photo-item">
+          <img
+            src="photos/powerwashing.jpg"
+            loading="lazy"
+            alt="When I'm not coding, I love to spend time volunteering."
+          />
+          <p>When I'm not coding, I love to spend time volunteering.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <a
+          href="https://github.com/avinashjoshi"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+        &middot;
+        <a
+          href="https://x.com/avinashjoshi"
+          target="_blank"
+          rel="noopener noreferrer"
+          >𝕏</a
+        >
+        &middot;
+        <a
+          href="https://linkedin.com/in/joshi-avinash"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        &middot;
+        <a
+          href="https://instagram.com/_avinashjoshi"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
+        >
+      </p>
+      <p>
+        <a href="mailto:avinash@hey.com">avinash@hey.com</a>
+      </p>
+      <p>
+        <button id="themeToggle">Toggle Mode</button>
+      </p>
+    </footer>
+
+    <div class="copyright">
+      <p>
+        &copy; <span id="copyrightYear">2023</span> Avinash Joshi. All rights
+        reserved.
+      </p>
+    </div>
+
+    <script>
+      /* Update copyright year */
+      document.getElementById("copyrightYear").textContent =
+        new Date().getFullYear();
+    </script>
+    <script>
+      /* Theme Toggle - dark mode & light mode */
+      const themeToggle = document.getElementById("themeToggle");
+      const lightSwitchModeText = "☀️ Switch to Light Mode";
+      const darkSwitchModeText = "🌙 Switch to Dark Mode";
+      const darkModeClassName = "dark-mode";
+      let currentTheme = localStorage.getItem("theme");
+
+      if (!currentTheme) {
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          currentTheme = "dark";
+        } else {
+          currentTheme = "light";
+        }
+      }
+
+      if (currentTheme === "dark") {
+        document.body.classList.add(darkModeClassName);
+        themeToggle.innerText = lightSwitchModeText;
+      } else {
+        themeToggle.innerText = darkSwitchModeText;
+      }
+
+      themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle(darkModeClassName);
+
+        let theme = "light";
+        if (document.body.classList.contains(darkModeClassName)) {
+          theme = "dark";
+          themeToggle.innerText = lightSwitchModeText;
+        } else {
+          themeToggle.innerText = darkSwitchModeText;
+        }
+
+        localStorage.setItem("theme", theme);
+      });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PVMRD3QTVG"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-PVMRD3QTVG");
+    </script>
+  </body>
+</html>
