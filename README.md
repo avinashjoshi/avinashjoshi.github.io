@@ -51,3 +51,10 @@ However, if you find any bugs or have suggestions, please open an issue.
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## Developer tips
+
+- [Creating WebP Images with the Command Line](https://web.dev/articles/codelab-serve-images-webp)
+  ```bash
+  `for file in *; do cwebp -q 90 "$file" -o "${file%.*}.webp"; done`
+  ```
