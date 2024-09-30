@@ -1,0 +1,157 @@
+:root {
+  font-size: 100%; /* Equivalent to 16px */
+  --background-color: #f4f4f4;
+  --foreground-color: #fff;
+  --text-color: #333;
+  --text-secondary-color: #555;
+  --text-link-color: blue;
+  --border-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.dark-mode {
+    --background-color: #1e2024;
+    --foreground-color: #2c2e34;
+    --text-color: #d1d1d6;
+    --text-secondary-color: #aaa;
+    --text-link-color: #a9a9ff;
+    --border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0.625rem;
+}
+
+header,
+section,
+footer {
+  max-width: 50rem; /* 800px */
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  background-color: var(--foreground-color);
+  box-shadow: 0 0 0.625rem var(--border-color);
+  border-radius: 0.625rem;
+}
+
+a {
+  color: var(--text-link-color);
+  text-decoration: none;
+  /*margin: 0 0.3125rem;*/
+}
+
+header,
+section h2,
+section#nav,
+footer {
+  text-align: center;
+}
+
+header {
+  margin-top: 3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.header-content h1 {
+  margin-block-end: 0.27em;
+}
+
+.header-content h1,
+.header-content p {
+  margin-block-start: 0.27em;
+}
+
+.avatar {
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-top: -3.75rem;
+  border-radius: 50%;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.25rem;
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 0.3125rem;
+}
+
+.photo-item img:hover {
+  transform: scale(1.05);
+}
+
+.photo-item p {
+  text-align: center;
+  margin-top: 0.3125rem;
+}
+
+footer {
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+}
+
+footer a {
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  margin: 0 0.3125rem;
+}
+
+button#themeToggle {
+  margin-top: 0.625rem;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: var(--text-secondary-color);
+  color: var(--background-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#themeToggle:hover {
+  background-color: var(--text-color);
+}
+
+.copyright {
+  padding: 0.3125rem 0;
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.copyright p {
+  font-size: 0.7rem;
+  margin-top: 0.625rem;
+  text-align: center;
+}
